@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Тип для элемента "Subject" -->
+    <xs:complexType name="SubjectType">
+        <xs:sequence>
+            <xs:element name="subjectName" type="xs:string"/>
+            <xs:element name="score" type="xs:byte"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Тип для элемента "Student" -->
+    <xs:complexType name="StudentType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="subjects">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Subject" type="SubjectType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Тип для элемента "Class" -->
+    <xs:complexType name="ClassType">
+        <xs:sequence>
+            <xs:element name="roomNumber" type="xs:string"/>
+            <xs:element name="students">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Student" type="StudentType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="subjects">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Subject" type="SubjectType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Элементы -->
+    <xs:element name="Subject" type="SubjectType"/>
+    <xs:element name="Student" type="StudentType"/>
+    <xs:element name="Class" type="ClassType"/>
+
+</xs:schema>
