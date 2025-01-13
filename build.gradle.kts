@@ -36,3 +36,23 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.register<JavaExec>("runClassOne") {
+    group = "application"
+    description = "Runs the main method in ClassOne"
+    mainClass.set("ru.compassplus.Main")
+    classpath = sourceSets["main"].runtimeClasspath
+}
+
+tasks.register<JavaExec>("runClassTwo") {
+    group = "application"
+    description = "Runs the main method in ClassTwo"
+    mainClass.set("ru.compassplus.Instances") // Полное имя класса
+    classpath = sourceSets["main"].runtimeClasspath // Класспатч
+}
+
+tasks.register("runBothClasses") {
+    group = "application"
+    description = "Runs main methods in ClassOne and ClassTwo"
+
+    dependsOn("runClassOne", "runClassTwo")
+}
