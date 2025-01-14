@@ -1,4 +1,4 @@
-_Ссылка на плагин: https://plugins.gradle.org/plugin/com.liferay.xsd.builder _
+Ссылка на плагин: https://plugins.gradle.org/plugin/com.liferay.xsd.builder
 
 **1) Создать структуру классов Student, Subject, Class.
 2) Создать экземпляры объектов и сохранить в файле, так чтобы потом можно было их воссоздать, используя стандартный механизм сериализации Java
